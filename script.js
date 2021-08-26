@@ -2,6 +2,7 @@
 let winner = "computer";
 const choices = ["rock", "paper", "scissors"];
 let computerChoice;
+let computerNumber;
 let playerChoice;
 
 window.addEventListener("load", start);
@@ -18,7 +19,8 @@ function start() {
 //player choice
 function getPlayerChoice() {
   console.log("getPlayerChoice");
-
+  playerChoice = this.classList.value;
+  console.log("Player chose " + playerChoice);
   /* if ((document.getElementsByClassName(".rock").clicked = true)) {
     console.log("You picked rock");
   } else if ((document.getElementsByClassName(".scissors").clicked = true)) {
@@ -31,6 +33,27 @@ function getPlayerChoice() {
 //computer choice
 function makeRandomComputerChoice() {
   console.log("makeRandomcomputerChoice");
+  computerNumber = Math.floor(Math.random() * 2);
+  document.querySelector("#player2").classList.remove("rock");
+  document.querySelector("#player2").classList.remove("paper");
+  document.querySelector("#player2").classList.remove("scissors");
+  document.querySelector("#player2").classList.add(choices[computerNumber]);
+
+  if (computerNumber == 0) {
+    computerChoice = "rock";
+    console.log("Computer chose " + computerChoice);
+  }
+
+  if (computerNumber == 1) {
+    computerChoice = "paper";
+    console.log("Computer chose " + computerChoice);
+  }
+
+  if (computerNumber == 2) {
+    computerChoice = "scissors";
+    console.log("Computer chose " + computerChoice);
+  }
+
   showAnimations();
 }
 
@@ -62,16 +85,21 @@ function showResults() {
 
   if (computerChoice == "rock") {
     document.querySelector("#player2").classList.add("rock");
+    /* document.querySelector("#player2").classList.remove("paper");
+    document.querySelector("#player2").classList.remove("scissors"); */
   }
 
   if (computerChoice == "paper") {
     document.querySelector("#player2").classList.add("paper");
+    /* document.querySelector("#player2").classList.remove("rock");
+    document.querySelector("#player2").classList.remove("scissors"); */
   }
 
   if (computerChoice == "scissors") {
     document.querySelector("#player2").classList.add("scissors");
+    /* document.querySelector("#player2").classList.remove("rock");
+    document.querySelector("#player2").classList.remove("paper"); */
   }
-  /* if  */
   determineWinner();
 }
 
@@ -101,7 +129,19 @@ function determineWinner() {
 
   if (playerChoice == "scissors" && computerChoice == "paper") {
     showWin();
-  } else {
+  } /* else {
+    showDraw();
+  } */
+
+  if (playerChoice == "rock" && computerChoice == "rock") {
+    showDraw();
+  }
+
+  if (playerChoice == "paper" && computerChoice == "paper") {
+    showDraw();
+  }
+
+  if (playerChoice == "scissors" && computerChoice == "scissors") {
     showDraw();
   }
 }
