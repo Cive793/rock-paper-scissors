@@ -67,6 +67,7 @@ function showAnimations() {
   document.querySelector("#player2").classList.add("shake");
   document.querySelector("#player1").addEventListener("animationend", showResults);
   document.querySelector("#player2").addEventListener("animationend", showResults);
+  removeResults();
 }
 
 //show results
@@ -162,4 +163,10 @@ function showLoss() {
 function showDraw() {
   console.log("showDraw");
   document.querySelector("#draw").classList.remove("hidden");
+}
+
+function removeResults() {
+  document.querySelector("#win").classList.add("hidden");
+  document.querySelector("#lose").classList.add("hidden");
+  document.querySelector("#draw").classList.add("hidden");
 }
