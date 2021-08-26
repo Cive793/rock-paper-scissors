@@ -19,6 +19,9 @@ function start() {
 //player choice
 function getPlayerChoice() {
   console.log("getPlayerChoice");
+  document.querySelector("#player1").classList.remove("rock");
+  document.querySelector("#player1").classList.remove("paper");
+  document.querySelector("#player1").classList.remove("scissors");
   playerChoice = this.classList.value;
   console.log("Player chose " + playerChoice);
   /* if ((document.getElementsByClassName(".rock").clicked = true)) {
